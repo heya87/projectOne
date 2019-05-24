@@ -1,15 +1,15 @@
-function log1() {
-  console.log('log1');
-};
-function log2() {
-  console.log('log2');
-};
+function loadThings() {
+  return JSON.parse(localStorage.getItem("things"));
+}
 
-function saveThing(thing) {
-  //localStorage.setItem("thing", thing.value);
-  //localStorage.setItem("description", description.value);
-  //console.log('Thing: ' + localStorage.getItem("thing") + ' Description: ' + localStorage.getItem("description"));
-  console.log(thing.value);
-};
+function saveThing(titleValue, dateValue) {
+  let thing = { title: titleValue, date: dateValue};
+  let things = [];
+  if (localStorage.getItem("things")) {
+    things = JSON.parse(localStorage.getItem("things"));
+  }
+  things.push(thing);
+  localStorage.setItem("things", JSON.stringify(things));
+}
 
-export { log1, log2, saveThing};
+export { saveThing, loadThings };

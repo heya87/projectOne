@@ -6,16 +6,16 @@
   <body>
     <main>
       <h1>Thing to do</h1>
-      <form id="thingForm" onsubmit="submitThing(event)">
-      Thing: <input type="text" id="thing" /> <br />
-      Some more details:
-      <input type="text" id="description" /> <br />
-      <button>Save</button>
+      <form id="thingForm">
+        A thing for my bucket list: <input type="text" id="thing" /> <br />
+        Want to do this until:
+        <input type="date" id="date" /> <br />
+        <button>Save</button>
       </form>
       <br />
       <br />
       <a href="../../index.html"> Changed my mind!</a>
     </main>
-    <script src="./create.js"></script>
+    <script type="module" src="./create.js"></script>
   </body>
 </html>
