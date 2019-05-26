@@ -7,11 +7,32 @@
     <main>
       <h1>Thing to do</h1>
       <form id="thingForm">
-        A thing for my bucket list: <input type="text" id="thing" /> <br />
+        A thing for my bucket list: <input type="text" id="description" />
+        <br />
         Want to do this until:
-        <input type="date" id="date" /> <br />
+        <input type="date" id="endDate" /> <br />
+
+
         <button>Save</button>
       </form>
+    </br>
+        <section id="relevance">
+          <fieldset class="relevanceSet">
+            <legend>Rate It</legend>
+            <form id="relevanceForm">
+              <input id="rel1" class="rel" name="rel" type="radio" />
+              <label for="rel1" class="star fa fa-star-o fa-lg"></label>
+              <input id="rel2" class="rel" name="rel" type="radio" />
+              <label for="rel2" class="star fa fa-star-o fa-lg"></label>
+              <input id="rel3" class="rel" name="rel" type="radio" />
+              <label for="rel3" class="star fa fa-star-o fa-lg"></label>
+              <input id="rel4" class="rel" name="rel" type="radio" />
+              <label for="rel4" class="star fa fa-star-o fa-lg"></label>
+              <input id="rel5" class="rel" name="rel" type="radio" />
+              <label for="rel5" class="star fa fa-star-o fa-lg"></label>
+            </form>
+          </fieldset>
+        </section>
       <br />
       <br />
       <a href="../../index.html"> Changed my mind!</a>

@@ -1,3 +1,5 @@
+import { now } from "../util/dateUtil.js";
+
 function loadThings() {
   return JSON.parse(localStorage.getItem("things"));
 }
@@ -12,9 +14,16 @@ function loadThingByID(id) {
   }
 }
 
-function createThing(titleValue, dateValue) {
+function createThing(descriptionValue, endDateValue, relevanceValue) {
   let id = generateUId();
-  let thing = { id: id, title: titleValue, date: dateValue };
+  let createDateValue = now();
+  let thing = {
+    id: id,
+    description: descriptionValue,
+    createDate: createDateValue,
+    endDate: endDateValue,
+    relevance: relevanceValue
+  };
   let things = [];
   if (localStorage.getItem("things")) {
     things = JSON.parse(localStorage.getItem("things"));
@@ -23,17 +32,18 @@ function createThing(titleValue, dateValue) {
   localStorage.setItem("things", JSON.stringify(things));
 }
 
-function updateThing(id, titleValue, dateValue) {
+function updateThing(id, descriptionValue, endDateValue, relevanceValue) {
   let thingToUpdate = loadThingByID(id);
   if (thingToUpdate) {
-    thingToUpdate.title = titleValue;
-    thingToUpdate.date = dateValue;
+    thingToUpdate.description = descriptionValue;
+    thingToUpdate.endDate = endDateValue;
+    thingToUpdate.relevance = relevanceValue;
     let things = JSON.parse(localStorage.getItem("things"));
     const index = things.findIndex(e => e.id === Number(id));
     things[index] = thingToUpdate;
     localStorage.setItem("things", JSON.stringify(things));
   } else {
-    createThing(titleValue, dateValue);
+    createThing(descriptionValue, endDateValue, relevanceValue);
   }
 }
 

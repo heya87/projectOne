@@ -12,18 +12,10 @@ function initView() {
 
 function sortByFinishUntil(things) {
   things.sort(function(a, b) {
-    a = new Date(a.date);
-    b = new Date(b.date);
+    a = new Date(a.createDate);
+    b = new Date(b.createDate);
     let result = a > b ? 1 : a < b ? -1 : 0;
     return result;
-  });
-}
-
-function sortByFinisUntil(things) {
-  things.sort(function(a, b) {
-    a = new Date(a.date);
-    b = new Date(b.date);
-    return a > b ? -1 : a < b ? 1 : 0;
   });
 }
 
@@ -32,7 +24,10 @@ function fillThings(things) {
   things.forEach(element => {
     let newItem = document.createElement("li");
     let newText = document.createTextNode(
-      `Thing i want to do: ${element.title} until: ${element.date}`
+      `Thing i want to do: ${element.description} until: ${element.endDate}
+         relevance: ${element.relevance}
+         createDate: ${element.createDate}
+      `
     );
     let button = document.createElement("button");
     button.setAttribute("data-id", element.id);
