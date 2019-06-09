@@ -1,5 +1,5 @@
 import { loadThings } from "./service/thingService.js";
-window.BASE_URL = "http://127.0.0.1:5500/projectOne/";
+window.BASE_URL = "http://localhost:8080/projectOne/";
 
 function initView() {
   let things = loadThings();

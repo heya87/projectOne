@@ -4,7 +4,7 @@ import {
   loadThingByID
 } from "../../service/thingService.js";
 
-const BASE_URL = "http://127.0.0.1:5500/projectOne/";
+const BASE_URL = "http://localhost:8080/projectOne/";
 const TEXTFIELD_THING = "description";
 const TEXTFIELD_DATE = "endDate";
 
