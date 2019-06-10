@@ -1,10 +1,10 @@
-const BASE_URL = "http://127.0.0.1:5500/projectOne/";
-export class ThingController {
-  constructor(thingService) {
+export class ListThingController {
+  constructor(router, thingService) {
+    this.router = router;
     this.thingService = thingService;
   }
 
-  initView() {
+  static initView() {
     this.thingService.loadThings();
     let things = this.thingService.loadThings();
     this.sortByFinishUntil(things);
@@ -12,6 +12,15 @@ export class ThingController {
     document
       .getElementById("things")
       .addEventListener("click", this.editClickEventHandler);
+
+
+    document
+      .getElementById("navigateToCreate")
+      .addEventListener("click", function(event) {
+        event.preventDefault();
+        console.log("im here");
+        router.navigateToCreateView();
+      });
   }
 
   sortByFinishUntil(things) {
@@ -44,7 +53,8 @@ export class ThingController {
 
   editClickEventHandler(event) {
     let id = event.target.dataset.id;
-    //window.location.replace(`${BASE_URL}create.html?id=${id}`);
-    window.location.replace(`${BASE_URL}view/create/create.html?id=${id}`);
+    this.router.navigateToCreateView(id);
   }
 }
+
+document.addEventListener("DOMContentLoaded", ListThingController.initView);

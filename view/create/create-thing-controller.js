@@ -1,13 +1,13 @@
-const BASE_URL = "http://127.0.0.1:5500/projectOne/";
 const TEXTFIELD_THING = "description";
 const TEXTFIELD_DATE = "endDate";
 
 export class CreateThingController {
-  constructor(thingService) {
+  constructor(router, thingService) {
+    this.router = router;
     this.thingService = thingService;
   }
 
-  initView() {
+  static initView() {
     let id = this.getIdFromURL();
     if (id) {
       let thing = this.thingService.loadThingByID(id);
@@ -35,7 +35,7 @@ export class CreateThingController {
     } else {
       this.thing.createThing(description, endDate, relevance);
     }
-    window.location.replace(BASE_URL + "index.html");
+    this.router.navigateToListView();
   }
 
   getRelevance() {
@@ -63,5 +63,13 @@ export class CreateThingController {
         //todo update css
         console.log(`Relevance ${getRelevance()} selected`);
       });
+
+    document
+      .getElementById("navigateToList")
+      .addEventListener("click", function(event) {
+        router.navigateToListView();
+      });
   }
 }
+
+document.addEventListener("DOMContentLoaded", CreateThingController.initView);
