@@ -1,12 +1,14 @@
 export class ThingService {
-  constructor() {}
+  constructor(dateUtil) {
+    this.dateUtil = dateUtil;
+  }
 
   loadThings() {
     return JSON.parse(localStorage.getItem("things"));
   }
 
   loadThingByID(id) {
-    let things = loadThings();
+    let things = this.loadThings();
     if (things) {
       let thing = things.find(thing => thing.id === Number(id));
       return thing;
@@ -16,8 +18,8 @@ export class ThingService {
   }
 
   createThing(descriptionValue, endDateValue, relevanceValue) {
-    let id = generateUId();
-    let createDateValue = now();
+    let id = this.generateUId();
+    let createDateValue = this.dateUtil.now();
     let thing = {
       id: id,
       description: descriptionValue,
@@ -34,7 +36,7 @@ export class ThingService {
   }
 
   updateThing(id, descriptionValue, endDateValue, relevanceValue) {
-    let thingToUpdate = loadThingByID(id);
+    let thingToUpdate = this.loadThingByID(id);
     if (thingToUpdate) {
       thingToUpdate.description = descriptionValue;
       thingToUpdate.endDate = endDateValue;
@@ -44,13 +46,13 @@ export class ThingService {
       things[index] = thingToUpdate;
       localStorage.setItem("things", JSON.stringify(things));
     } else {
-      createThing(descriptionValue, endDateValue, relevanceValue);
+      this.createThing(descriptionValue, endDateValue, relevanceValue);
     }
   }
 
   //works as long as we cant delete things, is going to be refactored when backend is there anyways
   generateUId() {
-    let things = loadThings();
+    let things = this.loadThings();
     if (things) {
       return things.length + 1;
     } else {

@@ -11,17 +11,13 @@
         <br />
         Want to do this until:
         <input type="date" id="endDate" /> <br />
-
-
-        <button>Save</button>
       </form>
-    </br>
         <section id="relevance">
           <fieldset class="relevanceSet">
             <legend>Rate It</legend>
             <form id="relevanceForm">
               <input id="rel1" class="rel" name="rel" type="radio" />
-              <label for="rel1" class="star fa fa-star-o fa-lg"></label>
+              <label forreleva="rel1" class="star fa fa-star-o fa-lg"></label>
               <input id="rel2" class="rel" name="rel" type="radio" />
               <label for="rel2" class="star fa fa-star-o fa-lg"></label>
               <input id="rel3" class="rel" name="rel" type="radio" />
@@ -33,10 +29,9 @@
             </form>
          </fieldset>
         </section>
-      <br />
-      <br />
-      
-      <a id="navigateToList"> Changed my mind!</a>
+        <button id="submitButton">Save</button>
+        <button id="navigateToListButton">Changed my mind</button>
     </main>
   </body>
+  <script type="module" src="./create-bootstrapper.js" defer></script>
 </html>
