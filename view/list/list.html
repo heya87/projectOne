@@ -2,15 +2,28 @@
 <html>
   <head>
     <title>ProjectOne</title>
+    <link id="theme" rel="stylesheet" href="../../style/style.css" />
   </head>
   <body>
-    <h1>My Bucket List</h1>
-    <h2>Things to do</h2>
-    <button id="sortByDate"> Sort by "Finish until date"</button>
-    <button id="sortByDate"> Sort by "Create date"</button>
-    <button id="sortByRelevance"> Sort by Relevance</button>
-    <ul id="things"></ul>
-    <button id="navigateToCreate">Just had a new idea!</button>
+    <div class="container">
+      <div class="header">
+        <h1>My Bucket List</h1>
+      </div>
+      <div class="nav">
+        <button id="navigateToCreate">Just had a new idea!</button>
+        <input id="styleSwitcher" type="checkbox" />
+      </div>
+      <div class="left"><p>left</p></div>
+      <div class="content">
+        <h2>Things to do</h2>
+        <button id="sortByDate">Sort by "Finish until date"</button>
+        <button id="sortByDate">Sort by "Create date"</button>
+        <button id="sortByRelevance">Sort by Relevance</button>
+        <ul id="things"></ul>
+      </div>
+      <div class="right"><p>right</p></div>
+      <div class="footer"><p>footer</p></div>
+    </div>
   </body>
   <script type="module" src="./list-bootstrapper.js" defer></script>
 </html>

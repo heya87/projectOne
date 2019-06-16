@@ -1,10 +1,12 @@
 export class ListController {
-  constructor(router, thingService) {
+  constructor(router, thingService, styleService) {
     this.router = router;
     this.thingService = thingService;
+    this.styleService = styleService;
 
     this.thingsList = document.getElementById("things");
     this.navigateToCreateButton = document.getElementById("navigateToCreate");
+    this.styleSwitcher= document.getElementById("styleSwitcher");
   }
 
   initView() {
@@ -19,6 +21,10 @@ export class ListController {
     this.navigateToCreateButton.addEventListener(
       "click",
       event => this.router.navigateToCreateView()
+    );
+
+    this.styleSwitcher.addEventListener("click", event =>
+      this.styleService.switch()
     );
   }
 

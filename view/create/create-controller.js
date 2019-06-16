@@ -1,7 +1,8 @@
 export class CreateController {
-  constructor(router, thingService) {
+  constructor(router, thingService, styleService) {
     this.router = router;
     this.thingService = thingService;
+    this.styleService = styleService;
 
     this.textFieldDescription = document.getElementById("description");
     this.dateFieldEndDate = document.getElementById("endDate");
@@ -9,6 +10,7 @@ export class CreateController {
     this.navigateToListButton = document.getElementById("navigateToListButton");
     this.thingForm = document.getElementById("thingForm");
     this.relevanceForm = document.getElementById("relevanceForm");
+    this.styleSwitcher= document.getElementById("styleSwitcher");
   }
 
   initView() {
@@ -59,6 +61,9 @@ export class CreateController {
     });
     this.navigateToListButton.addEventListener("click", event =>
       this.router.navigateToListView()
+    );
+    this.styleSwitcher.addEventListener("click", event =>
+      this.styleService.switch()
     );
   }
 }

@@ -2,35 +2,47 @@
 <html>
   <head>
     <title>ProjectOne</title>
+    <link id="theme" rel="stylesheet" href="../../style/style.css" />
   </head>
   <body>
     <main>
-      <h1>Thing to do</h1>
-      <form id="thingForm">
-        A thing for my bucket list: <input type="text" id="description" />
-        <br />
-        Want to do this until:
-        <input type="date" id="endDate" /> <br />
-      </form>
-        <section id="relevance">
-          <fieldset class="relevanceSet">
-            <legend>Rate It</legend>
-            <form id="relevanceForm">
-              <input id="rel1" class="rel" name="rel" type="radio" />
-              <label forreleva="rel1" class="star fa fa-star-o fa-lg"></label>
-              <input id="rel2" class="rel" name="rel" type="radio" />
-              <label for="rel2" class="star fa fa-star-o fa-lg"></label>
-              <input id="rel3" class="rel" name="rel" type="radio" />
-              <label for="rel3" class="star fa fa-star-o fa-lg"></label>
-              <input id="rel4" class="rel" name="rel" type="radio" />
-              <label for="rel4" class="star fa fa-star-o fa-lg"></label>
-              <input id="rel5" class="rel" name="rel" type="radio" />
-              <label for="rel5" class="star fa fa-star-o fa-lg"></label>
-            </form>
-         </fieldset>
-        </section>
-        <button id="submitButton">Save</button>
-        <button id="navigateToListButton">Changed my mind</button>
+      <div class="container">
+        <div class="header"></div>
+        <div class="nav">
+          <button id="navigateToListButton">Changed my mind</button>
+          <input id="styleSwitcher" type="checkbox">
+        </div>
+        <div class="left"><p>left</p></div>
+        <div class="content">
+          <h1>Thing to do</h1>
+          <form id="thingForm">
+            A thing for my bucket list: <input type="text" id="description" />
+            <br />
+            Want to do this until:
+            <input type="date" id="endDate" /> <br />
+          </form>
+          <section id="relevance">
+            <fieldset class="relevanceSet">
+              <legend>Rate It</legend>
+              <form id="relevanceForm">
+                <input id="rel1" class="rel" name="rel" type="radio" />
+                <label forreleva="rel1" class="star fa fa-star-o fa-lg"></label>
+                <input id="rel2" class="rel" name="rel" type="radio" />
+                <label for="rel2" class="star fa fa-star-o fa-lg"></label>
+                <input id="rel3" class="rel" name="rel" type="radio" />
+                <label for="rel3" class="star fa fa-star-o fa-lg"></label>
+                <input id="rel4" class="rel" name="rel" type="radio" />
+                <label for="rel4" class="star fa fa-star-o fa-lg"></label>
+                <input id="rel5" class="rel" name="rel" type="radio" />
+                <label for="rel5" class="star fa fa-star-o fa-lg"></label>
+              </form>
+            </fieldset>
+          </section>
+          <button id="submitButton">Save</button>
+        </div>
+        <div class="right"><p>right</p></div>
+        <div class="footer"><p>footer</p></div>
+      </div>
     </main>
   </body>
   <script type="module" src="./create-bootstrapper.js" defer></script>

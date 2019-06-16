@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:5500/projectOne/";
+const BASE_URL = "http://127.0.0.1:5500/";
 const CREATE_URL = "view/create/create.html";
 const LIST_URL = "view/list/list.html";
 
