@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ProjectOne</title>
+    <link id="theme" rel="stylesheet" href="../../style/style.css" />
+
+    <script src="../../libs/handlebars-v4.1.2.js" defer></script>
+    <script src="../../util/handlebars-helpers.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>My Bucket List</h1>
+      </div>
+      <div class="nav">
+        <button id="navigateToCreate">Just had a new idea!</button>
+        <input id="styleSwitcher" type="checkbox" />
+      </div>
+      <div class="left"><p>left</p></div>
+      <div class="content">
+        <h2>Things to do</h2>
+        <button id="sortByDate">Sort by "Finish until date"</button>
+        <button id="sortByDate">Sort by "Create date"</button>
+        <button id="sortByRelevance">Sort by Relevance</button>
+        <div id="thingContainer"></div>
+      </div>
+      <div class="right"><p>right</p></div>
+      <div class="footer"><p>footer</p></div>
+    </div>
+
+    <script type="module" src="./list-bootstrapper.js" defer></script>
+
+    <script id="thing-template" type="text/x-handlebars-template">
+      <table class="table table-striped">
+          <caption>
+              Things:
+          </caption>
+          <thead>
+          <tr>
+              <th>Description</th>
+              <th>Relevance</th>
+              <th>Due to</th>
+              <th>Create date</th>
+              <th>Edit</th>
+          </tr>
+          </thead>
+          <tbody>
+          {{#each things}}
+          <tr>
+              <td>{{description}}</td>
+              <td>{{relevance}}</td>
+              <td>{{formatDate endDate}}</td>
+              <td>{{formatDate createDate}}</td>
+              <td>{{#ifCond state '===' 'NEW'}}
+                  <button data-id="{{_id}}" class="btn btn-default js-edit">Edit</button>
+                  {{/ifCond}}
+              </td>
+          </tr>
+          {{/each}}
+          </tbody>
+      </table>
+    </script>
+  </body>
+</html>

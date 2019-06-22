@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:5500/";
+const BASE_URL = "http://127.0.0.1:3001/";
 const CREATE_URL = "view/create/create.html";
 const LIST_URL = "view/list/list.html";
 
@@ -10,6 +10,7 @@ export class Router {
   }
 
   navigateToCreateView(id) {
+    console.log("navigating");
     if (id) {
       window.location.replace(`${BASE_URL}${CREATE_URL}?id=${id}`);
     } else {
