@@ -13,15 +13,22 @@
         <h1>My Bucket List</h1>
       </div>
       <div class="nav">
-        <button id="navigateToCreate">Just had a new idea!</button>
+        <button class="button1" id="navigateToCreate">
+          Just had a new idea!
+        </button>
         <input id="styleSwitcher" type="checkbox" />
       </div>
       <div class="left"><p>left</p></div>
       <div class="content">
         <h2>Things to do</h2>
-        <button id="sortByDate">Sort by "Finish until date"</button>
-        <button id="sortByDate">Sort by "Create date"</button>
-        <button id="sortByRelevance">Sort by Relevance</button>
+        <form id="relevanceForm">
+          <input id="sortByDate" type="radio" name="orderType" />
+          <label forreleva="sortByEndDate">Sort by Due to</label>
+          <input id="sortByDate" type="radio" name="orderType" />
+          <label forreleva="sortByCreateDate">Sort by Create date</label>
+          <input id="sortByDate" type="radio" name="orderType" />
+          <label forreleva="sortByRelevance">Sort by Relevance</label>
+        </form>
         <div id="thingContainer"></div>
       </div>
       <div class="right"><p>right</p></div>
@@ -52,7 +59,7 @@
               <td>{{formatDate endDate}}</td>
               <td>{{formatDate createDate}}</td>
               <td>{{#ifCond state '===' 'NEW'}}
-                  <button data-id="{{_id}}" class="btn btn-default js-edit">Edit</button>
+                  <button class = "button1" data-id="{{_id}}" class="btn btn-default js-edit">Edit</button>
                   {{/ifCond}}
               </td>
           </tr>

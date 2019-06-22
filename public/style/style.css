@@ -1,5 +1,16 @@
+:root {
+  --main-bg-color: coral;
+  --main-txt-color: blue; 
+  --main-padding: 15px; 
+  
+  --ratingGreyColor: #d0cccd;
+  --ratingBlueColor: #00b9ee;
+  --ratingDarkColor: #555e63;
+}
+
+
 body {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .container {
@@ -14,34 +25,29 @@ body {
 }
 
 .header {
-  background-color:red;
   padding: 1em;
   grid-area: header;
 }
 
 .nav {
-  background-color: lightblue;
   padding: 1em;
   grid-area: nav;
 }
 .content {
-  background-color: orange;
   padding: 1em;
   grid-area: content;
 }
-.left{
-  background-color: violet;
+.left {
   padding: 1em;
   grid-area: left;
 }
 
-.right{
-  background-color: violet;
+.right {
   padding: 1em;
   grid-area: right;
 }
 .footer {
-  background-color: yellow;
   padding: 1em;
   grid-area: footer;
+  color: green;
 }
