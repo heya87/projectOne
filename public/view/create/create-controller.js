@@ -26,7 +26,7 @@ export class CreateController {
       "4": () => (this.relevanceFour.checked = true),
       "5": () => (this.relevanceFive.checked = true)
     };
-    return relevanceTypes[relevance]();
+    relevanceTypes[relevance]();
   }
 
   initView() {
