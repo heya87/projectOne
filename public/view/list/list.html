@@ -10,25 +10,44 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1>My Bucket List</h1>
+        <h1>Bucket List</h1>
       </div>
       <div class="nav">
-        <button class="button1" id="navigateToCreate">
-          Just had a new idea!
-        </button>
         <input id="styleSwitcher" type="checkbox" />
       </div>
       <div class="left"><p>left</p></div>
       <div class="content">
-        <h2>Things to do</h2>
-        <form id="relevanceForm">
-          <input id="sortByDate" type="radio" name="orderType" />
-          <label forreleva="sortByEndDate">Sort by Due to</label>
-          <input id="sortByDate" type="radio" name="orderType" />
-          <label forreleva="sortByCreateDate">Sort by Create date</label>
-          <input id="sortByDate" type="radio" name="orderType" />
-          <label forreleva="sortByRelevance">Sort by Relevance</label>
-        </form>
+        <div class="flex">
+          <h2 class="subtitle">Things to do</h2>
+          <span class="spacer"></span>
+          <button class="button1" id="navigateToCreate">
+            Just had a new idea!
+          </button>
+        </div>
+        <fieldset>
+          <legend>Filter</legend>
+          <form id="orderForm" class="flex">
+            <label>Order by:</label>
+            <label class="alignleft">
+              <input id="orderByEndDate" type="radio" name="orderType" />
+              Due by
+            </label>
+            <label class="alignleft">
+              <input id="orderByCreateDate" type="radio" name="orderType" />
+              Create date
+            </label>
+            <label class="alignleft">
+              <input id="orderByRelevance" type="radio" name="orderType" />
+              Relevance
+            </label>
+            <span class="spacer"></span>
+            <label class="alignrigth">
+              <input id="showDone" type="checkbox" />
+              Done
+            </label>
+          </form>
+        </fieldset>
+
         <div id="thingContainer"></div>
       </div>
       <div class="right"><p>right</p></div>
@@ -39,16 +58,14 @@
 
     <script id="thing-template" type="text/x-handlebars-template">
       <table class="table table-striped">
-          <caption>
-              Things:
-          </caption>
           <thead>
           <tr>
               <th>Description</th>
               <th>Relevance</th>
               <th>Due to</th>
               <th>Create date</th>
-              <th>Edit</th>
+              <th>State</th>
+              <th>Actions</th>
           </tr>
           </thead>
           <tbody>
@@ -58,8 +75,10 @@
               <td>{{relevance}}</td>
               <td>{{formatDate endDate}}</td>
               <td>{{formatDate createDate}}</td>
+              <td>{{state}}</td>
               <td>{{#ifCond state '===' 'NEW'}}
                   <button class = "button1" data-id="{{_id}}" class="btn btn-default js-edit">Edit</button>
+                  <button class = "button1" data-id="{{_id}}" class="btn btn-default js-done">Been there, done that!</button>
                   {{/ifCond}}
               </td>
           </tr>

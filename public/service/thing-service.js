@@ -3,8 +3,8 @@ export class ThingService {
     this.httpService = httpService;
   }
 
-  async loadThings() {
-    return await this.httpService.ajax("GET", "/thing/", undefined);
+  async loadThings(orderType, doneOnly) {
+    return await this.httpService.ajax("GET", `/thing?orderType=${orderType}&doneOnly=${doneOnly}`, undefined);
   }
 
   async loadThingByID(id) {

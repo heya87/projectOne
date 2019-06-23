@@ -2,4 +2,4 @@
 {"description":"bbbbb","endDate":"2019-06-22","relevance":5,"state":"NEW","_id":"MUdNHqjCLJUFGS07"}
 {"description":"aaaaaaaaa","endDate":"2019-06-22","relevance":4,"state":"NEW","_id":"OzVID0RC6B0l2UtW"}
 {"description":"created today","endDate":"2019-06-28","relevance":5,"createDate":"2019-6-22","state":"NEW","_id":"T31jdx0mAlp30CvJ"}
-{"description":"xyz","endDate":"2019-06-29","relevance":1,"state":"NEW","_id":"dbDvAXfAeDCGjHRv"}
+{"description":"xyz","endDate":"2019-06-29","relevance":1,"state":"DONE","_id":"dbDvAXfAeDCGjHRv"}

@@ -5,8 +5,7 @@ export class ThingService {
   }
 
   async getThings(req, res) {
-   let result = await this.thingStore.all();
-    res.json((await this.thingStore.all()) || []);
+    res.json((await this.thingStore.all(req.query.orderType, req.query.doneOnly)) || []);
   }
 
   async getThing(req, res) {

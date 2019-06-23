@@ -1,7 +1,12 @@
 import Datastore from "nedb-promise";
 
 const THING_STATE_NEW = "NEW";
+const THING_STATE_DONE = "DONE";
 const THING_STATE_DELETED = "DELETED";
+
+const ORDER_TYPE_END_DATE = "endDate";
+const ORDER_TYPE_CREATE_DATE = "createDate";
+const ORDER_TYPE_RELEVANCE = "relevance";
 
 export class Thing {
   constructor(description, endDate, relevance, createDate) {
@@ -16,6 +21,12 @@ export class Thing {
 export class ThingStore {
   constructor() {
     this.db = new Datastore({ filename: "./data/things.db", autoload: true });
+
+    this.orderTypeQueries = {
+      createDate: { createDate: -1 },
+      endDate: { endDate: 1 },
+      relevance: { relevance: -1 }
+    };
   }
 
   async add(description, endDate, relevance, createDate) {
@@ -36,7 +47,21 @@ export class ThingStore {
     return result;
   }
 
-  async all() {
-    return await this.db.find({});
+  async all(orderType, doneOnly) {
+    let searchTerm;
+    console.log(doneOnly);
+    if (doneOnly == 'false') {
+    console.log(false);
+      searchTerm = { $or: [{ state: "NEW" }, { state: "DONE" }] };
+    } else {
+    console.log(true);
+      searchTerm = { state: "DONE" };
+    }
+    console.log(searchTerm);
+
+    return await this.db
+      .cfind(searchTerm)
+      .sort(this.orderTypeQueries[orderType])
+      .exec();
   }
 }
