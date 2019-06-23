@@ -49,15 +49,11 @@ export class ThingStore {
 
   async all(orderType, doneOnly) {
     let searchTerm;
-    console.log(doneOnly);
-    if (doneOnly == 'false') {
-    console.log(false);
+    if (doneOnly == "false") {
       searchTerm = { $or: [{ state: "NEW" }, { state: "DONE" }] };
     } else {
-    console.log(true);
       searchTerm = { state: "DONE" };
     }
-    console.log(searchTerm);
 
     return await this.db
       .cfind(searchTerm)
