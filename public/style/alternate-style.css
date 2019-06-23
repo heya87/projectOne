@@ -1,0 +1,73 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  animation: colorchange 3s forwards linear normal infinite;
+}
+
+@keyframes colorchange {
+  0% {
+    background: red;
+  }
+  25% {
+    background: yellow;
+  }
+  50% {
+    background: blue;
+  }
+  75% {
+    background: green;
+  }
+  100% {
+    background: red;
+  }
+}
+
+.container {
+  height: 100px;
+  display: grid;
+  grid-template-columns: 100px 3fr 100px;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "header header nav"
+    "left content right"
+    "footer footer footer";
+}
+
+.header {
+  padding: 1em;
+  grid-area: header;
+}
+
+.nav {
+  padding: 1em;
+  grid-area: nav;
+}
+.content {
+  padding: 1em;
+  grid-area: content;
+}
+.left {
+  padding: 1em;
+  grid-area: left;
+}
+
+.right {
+  padding: 1em;
+  grid-area: right;
+}
+.footer {
+  padding: 1em;
+  grid-area: footer;
+  color: green;
+}
+
+.flex {
+  display: flex;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.subtitle {
+  display: inline;
+}

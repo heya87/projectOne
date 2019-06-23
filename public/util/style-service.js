@@ -11,9 +11,8 @@ export class StyleService {
   }
 
   isDefault() {
-    //let currentStyle = JSON.parse(localStorage.getItem(STYLE_KEY));
-    //return currentStyle.default;
-    return true;
+    let currentStyle = JSON.parse(localStorage.getItem(STYLE_KEY));
+    return currentStyle.default;
   }
 
   switch() {

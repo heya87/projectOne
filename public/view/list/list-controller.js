@@ -25,6 +25,7 @@ export class ListController {
   async initView() {
     this.orderByEndDateRadio.checked = true;
     this.renderThings();
+    this.initStyle()
 
     this.navigateToCreateButton.addEventListener("click", event =>
       this.router.navigateToCreateView()
@@ -65,6 +66,10 @@ export class ListController {
         this.doneOnlyCheckbox.checked
       )
     });
+  }
+
+  initStyle() {
+    this.styleSwitcher.checked = this.styleService.isDefault();
   }
 
   async editClickEventHandler(event) {

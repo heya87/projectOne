@@ -35,6 +35,11 @@ export class CreateController {
       this.fillThing(id);
     }
     this.initEventHandler();
+    this.initStyle();
+  }
+
+  initStyle() {
+    this.styleSwitcher.checked = this.styleService.isDefault();
   }
 
   async fillThing(id) {
