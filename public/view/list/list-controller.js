@@ -72,9 +72,11 @@ export class ListController {
     this.styleSwitcher.checked = this.styleService.isDefault();
   }
 
-  async editClickEventHandler(event) {
+  editClickEventHandler(event) {
+    console.log(event.target.classList);
     if (event.target.classList.contains("js-edit")) {
-      await this.router.navigateToCreateView(event.target.dataset.id);
+    console.log('clicked');
+      this.router.navigateToCreateView(event.target.dataset.id);
     }
   }
 }

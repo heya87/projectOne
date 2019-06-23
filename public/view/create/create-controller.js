@@ -80,8 +80,10 @@ export class CreateController {
     let relevance = this.getRelevance();
     let id = this.getIdFromURL();
     if (this.getIdFromURL()) {
+      console.log("updating");
       this.thingService.updateThing(id, description, endDate, relevance);
     } else {
+      console.log("new");
       this.thingService.createThing(description, endDate, relevance);
     }
     this.router.navigateToListView();

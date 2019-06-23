@@ -77,8 +77,8 @@
               <td>{{formatDate createDate}}</td>
               <td>{{state}}</td>
               <td>{{#ifCond state '===' 'NEW'}}
-                  <button class = "button1" data-id="{{_id}}" class="btn btn-default js-edit">Edit</button>
-                  <button class = "button1" data-id="{{_id}}" class="btn btn-default js-done">Been there, done that!</button>
+                  <button data-id="{{_id}}" class="button1 btn btn-default js-edit">Edit</button>
+                  <button data-id="{{_id}}" class="button1 btn btn-default js-done">Been there, done that!</button>
                   {{/ifCond}}
               </td>
           </tr>

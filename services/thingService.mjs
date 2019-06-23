@@ -5,7 +5,9 @@ export class ThingService {
   }
 
   async getThings(req, res) {
-    res.json((await this.thingStore.all(req.query.orderType, req.query.doneOnly)) || []);
+    res.json(
+      (await this.thingStore.all(req.query.orderType, req.query.doneOnly)) || []
+    );
   }
 
   async getThing(req, res) {
@@ -13,36 +15,24 @@ export class ThingService {
   }
 
   createThing(req, res) {
+    console.log("creating");
     let id = 1;
     let createDate = this.dateUtil.now();
-    this.thingStore.add(req.body.description, req.body.endDate, req.body.relevance, createDate)
+    this.thingStore.add(
+      req.body.description,
+      req.body.endDate,
+      req.body.relevance,
+      createDate
+    );
   }
 
   updateThing(req, resp) {
-    let id = req.params.id;
-    let createDateValue = this.dateUtil.now();
-    let thing = {
-      id: id,
-      description: req.body.description,
-      createDate: createDateValue,
-      endDate: req.body.endDate,
-      relevance: req.body.relevance
-    };
-    console.log(thing);
-
-
-//    let thingToUpdate = this.loadThingByID(id);
-//    if (thingToUpdate) {
-//      thingToUpdate.description = descriptionValue;
-//      thingToUpdate.endDate = endDateValue;
-//      thingToUpdate.relevance = relevanceValue;
-//      let things = JSON.parse(localStorage.getItem("things"));
-//      const index = things.findIndex(e => e.id === Number(id));
-//      things[index] = thingToUpdate;
-//      localStorage.setItem("things", JSON.stringify(things));
-//    } else {
-//      this.createThing(descriptionValue, endDateValue, relevanceValue);
-//    }
+    this.thingStore.update(
+      req.params.id,
+      req.body.description,
+      req.body.endDate,
+      req.body.relevance
+    );
   }
 
   deleteThing(req, res) {

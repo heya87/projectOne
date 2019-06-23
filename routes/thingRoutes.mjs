@@ -7,7 +7,7 @@ export class ThingRoutes {
   getRoutes() {
     this.router.get("/", this.thingService.getThings.bind(this.thingService));
     this.router.post("/", this.thingService.createThing.bind(this.thingService));
-    this.router.put("/:id", this.thingService.createThing.bind(this.thingService));
+    this.router.put("/:id", this.thingService.updateThing.bind(this.thingService));
     this.router.get("/:id/", this.thingService.getThing.bind(this.thingService));
     this.router.delete("/:id/", this.thingService.deleteThing.bind(this.thingService));
     return this.router;
