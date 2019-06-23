@@ -34,14 +34,15 @@ export class ThingStore {
     return await this.db.insert(thing);
   }
 
-  async update(id, description, endDate, relevance) {
+  async update(id, description, endDate, relevance, state) {
     return await this.db.update(
       { _id: id },
       {
         $set: {
           description: description,
           endDate: endDate,
-          relevance: relevance
+          relevance: relevance,
+          state: state
         }
       }
     );

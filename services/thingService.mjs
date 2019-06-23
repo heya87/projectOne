@@ -15,7 +15,6 @@ export class ThingService {
   }
 
   createThing(req, res) {
-    console.log("creating");
     let id = 1;
     let createDate = this.dateUtil.now();
     this.thingStore.add(
@@ -31,7 +30,8 @@ export class ThingService {
       req.params.id,
       req.body.description,
       req.body.endDate,
-      req.body.relevance
+      req.body.relevance,
+      req.body.state
     );
   }
 

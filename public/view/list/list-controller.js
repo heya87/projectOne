@@ -2,6 +2,8 @@ const ORDER_TYPE_END_DATE = "endDate";
 const ORDER_TYPE_CREATE_DATE = "createDate";
 const ORDER_TYPE_RELEVANCE = "relevance";
 
+const THING_STATE_DONE = "DONE";
+
 export class ListController {
   constructor(router, thingService, styleService) {
     this.router = router;
@@ -25,7 +27,7 @@ export class ListController {
   async initView() {
     this.orderByEndDateRadio.checked = true;
     this.renderThings();
-    this.initStyle()
+    this.initStyle();
 
     this.navigateToCreateButton.addEventListener("click", event =>
       this.router.navigateToCreateView()
@@ -34,6 +36,11 @@ export class ListController {
     this.thingContainer.addEventListener(
       "click",
       async event => await this.editClickEventHandler(event)
+    );
+
+    this.thingContainer.addEventListener(
+      "click",
+      event => this.doneClickEventHandler(event)
     );
 
     this.styleSwitcher.addEventListener("click", event =>
@@ -54,7 +61,6 @@ export class ListController {
     });
 
     this.doneOnlyCheckbox.addEventListener("click", event => {
-      console.log("clicked");
       this.renderThings();
     });
   }
@@ -73,10 +79,23 @@ export class ListController {
   }
 
   editClickEventHandler(event) {
-    console.log(event.target.classList);
     if (event.target.classList.contains("js-edit")) {
-    console.log('clicked');
       this.router.navigateToCreateView(event.target.dataset.id);
+    }
+  }
+
+  async doneClickEventHandler(event) {
+    if (event.target.classList.contains("js-done")) {
+      let id = event.target.dataset.id;
+      let thingToUpdate = await this.thingService.loadThingByID(id);
+      this.thingService.updateThing(
+        id,
+        thingToUpdate.description,
+        thingToUpdate.endDate,
+        thingToUpdate.relevance,
+        THING_STATE_DONE
+      );
+      this.renderThings();
     }
   }
 }

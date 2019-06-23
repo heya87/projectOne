@@ -12,7 +12,6 @@ export class ThingService {
   }
 
   async createThing(descriptionValue, endDateValue, relevanceValue) {
-    console.log('creating');
     return await this.httpService.ajax("POST", "/thing/", {
       description: descriptionValue,
       endDate: endDateValue,
@@ -20,13 +19,13 @@ export class ThingService {
     });
   }
 
-  async updateThing(id, descriptionValue, endDateValue, relevanceValue) {
-    console.log('updating');
+  async updateThing(id, descriptionValue, endDateValue, relevanceValue, stateValue) {
     let route = `/thing/${id}/`;
     return await this.httpService.ajax("PUT", route, {
       description: descriptionValue,
       endDate: endDateValue,
-      relevance: relevanceValue
+      relevance: relevanceValue,
+      state: stateValue
     });
   }
 

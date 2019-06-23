@@ -43,15 +43,11 @@ export class CreateController {
   }
 
   async fillThing(id) {
-    console.log("hello");
-    //this.doFill(await this.thingService.loadThings());
     this.doFill(await this.thingService.loadThingByID(id));
   }
 
   doFill(thing) {
-    console.log(thing);
     if (thing) {
-      console.log(thing);
       this.textFieldDescription.value = thing.description;
       this.dateFieldEndDate.value = thing.endDate;
       this.setRelevance(thing.relevance);
@@ -80,10 +76,8 @@ export class CreateController {
     let relevance = this.getRelevance();
     let id = this.getIdFromURL();
     if (this.getIdFromURL()) {
-      console.log("updating");
       this.thingService.updateThing(id, description, endDate, relevance);
     } else {
-      console.log("new");
       this.thingService.createThing(description, endDate, relevance);
     }
     this.router.navigateToListView();
@@ -92,7 +86,6 @@ export class CreateController {
   initEventHandler() {
     this.submitButton.addEventListener("click", event => this.submitThing());
     this.relevanceForm.addEventListener("click", event => {
-      console.log("update relevance css here");
     });
     this.navigateToListButton.addEventListener("click", event =>
       this.router.navigateToListView()

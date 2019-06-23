@@ -10,7 +10,6 @@ export class Router {
   }
 
   navigateToCreateView(id) {
-    console.log("navigating");
     if (id) {
       window.location.replace(`${BASE_URL}${CREATE_URL}?id=${id}`);
     } else {

@@ -17,7 +17,6 @@ export class StyleService {
 
   switch() {
     this.setDefaultStyle(!this.isDefault());
-    console.log("default style activated: " + this.isDefault());
     this.updateStyleSheet();
   }
 
