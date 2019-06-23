@@ -1,3 +1,4 @@
+const THING_STATE_NEW = "NEW";
 export class CreateController {
   constructor(router, thingService, styleService) {
     this.router = router;
@@ -9,13 +10,13 @@ export class CreateController {
     this.submitButton = document.getElementById("submitButton");
     this.navigateToListButton = document.getElementById("navigateToListButton");
     this.thingForm = document.getElementById("thingForm");
-    this.relevanceForm = document.getElementById("relevanceForm");
+    this.relevanceSet = document.getElementById("relevanceSet");
     this.styleSwitcher = document.getElementById("styleSwitcher");
-    this.relevanceOne = document.getElementById("rel1");
-    this.relevanceTwo = document.getElementById("rel2");
-    this.relevanceThree = document.getElementById("rel3");
-    this.relevanceFour = document.getElementById("rel4");
-    this.relevanceFive = document.getElementById("rel5");
+    this.relevanceOne = document.getElementById("star1");
+    this.relevanceTwo = document.getElementById("star2");
+    this.relevanceThree = document.getElementById("star3");
+    this.relevanceFour = document.getElementById("star4");
+    this.relevanceFive = document.getElementById("star5");
   }
 
   setRelevance(relevance) {
@@ -62,12 +63,12 @@ export class CreateController {
 
   getRelevance() {
     let relevance;
-    for (var i = 0; i < this.relevanceForm.elements.length; i++) {
-      if (this.relevanceForm.elements[i].checked) {
+    for (var i = 0; i < this.relevanceSet.elements.length; i++) {
+      if (this.relevanceSet.elements[i].checked) {
         relevance = i + 1;
       }
     }
-    return relevance;
+    return 6- relevance;
   }
 
   submitThing(event) {
@@ -77,12 +78,12 @@ export class CreateController {
 
     if (this.validate(description, endDate, relevance)) {
       let id = this.getIdFromURL();
-      if (this.getIdFromURL()) {
-        this.thingService.updateThing(id, description, endDate, relevance);
+      if (id) {
+        this.thingService.updateThing(id, description, endDate, relevance, THING_STATE_NEW);
       } else {
         this.thingService.createThing(description, endDate, relevance);
       }
-      this.router.navigateToListView();
+      //this.router.navigateToListView();
     }
   }
 
@@ -102,7 +103,6 @@ export class CreateController {
 
   initEventHandler() {
     this.submitButton.addEventListener("click", event => this.submitThing());
-    this.relevanceForm.addEventListener("click", event => {});
     this.navigateToListButton.addEventListener("click", event =>
       this.router.navigateToListView()
     );

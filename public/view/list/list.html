@@ -6,6 +6,7 @@
 
     <script src="../../libs/handlebars-v4.1.2.js" defer></script>
     <script src="../../util/handlebars-helpers.js" defer></script>
+    <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
     <div class="container">
@@ -21,7 +22,7 @@
           <h2 class="subtitle">Things to do</h2>
           <span class="spacer"></span>
           <button class="button1" id="navigateToCreate">
-            Just had a new idea!
+            Have something in mind...
           </button>
         </div>
         <fieldset>
@@ -60,7 +61,7 @@
       <table class="table table-striped">
           <thead>
           <tr>
-              <th>Description</th>
+              <th class="colDesc">Description</th>
               <th>Relevance</th>
               <th>Due to</th>
               <th>Create date</th>
@@ -77,7 +78,7 @@
               <td>{{formatDate createDate}}</td>
               <td>{{state}}</td>
               <td>{{#ifCond state '===' 'NEW'}}
-                  <button data-id="{{_id}}" class="button1 btn btn-default js-edit">Edit</button>
+                  <button data-id="{{_id}}" class="button1 btn btn-default js-edit" data-feather="circle">Edit</button>
                   <button data-id="{{_id}}" class="button1 btn btn-default js-done">Been there, done that!</button>
                   {{/ifCond}}
               </td>

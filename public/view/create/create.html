@@ -3,6 +3,11 @@
   <head>
     <title>ProjectOne</title>
     <link id="theme" rel="stylesheet" href="../../style/style.css" />
+    <link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <main>
@@ -19,7 +24,7 @@
             <h2 class="subtitle">Things to do</h2>
             <span class="spacer"></span>
             <button class="button1" id="navigateToListButton">
-              Changed my mind
+              Better not
             </button>
           </div>
           <form id="thingForm">
@@ -29,24 +34,22 @@
             Want to do this until:
             <input type="date" id="endDate" required /> <br />
           </form>
-          <section id="relevance">
-            <fieldset class="relevanceSet">
-              <legend>Rate It</legend>
-              <form id="relevanceForm">
-                <input id="rel1" class="rel" name="rel" type="radio" required />
-                <label forreleva="rel1" class="star fa fa-star-o fa-lg"></label>
-                <input id="rel2" class="rel" name="rel" type="radio" />
-                <label for="rel2" class="star fa fa-star-o fa-lg"></label>
-                <input id="rel3" class="rel" name="rel" type="radio" />
-                <label for="rel3" class="star fa fa-star-o fa-lg"></label>
-                <input id="rel4" class="rel" name="rel" type="radio" />
-                <label for="rel4" class="star fa fa-star-o fa-lg"></label>
-                <input id="rel5" class="rel" name="rel" type="radio" />
-                <label for="rel5" class="star fa fa-star-o fa-lg"></label>
-              </form>
+          <section class="relevanceSection" id="relevance">
+            <fieldset id="relevanceSet" class="rating relevanceSet">
+              <legend>Relevance</legend>
+              <input type="radio" id="star5" name="rating" value="5" />
+              <label class="full" for="star5" title="AYAYAYAY!!!"></label>
+              <input type="radio" id="star4" name="rating" value="4" />
+              <label class="full" for="star4" title="Ab geht die Luzi!"></label>
+              <input type="radio" id="star3" name="rating" value="3" />
+              <label class="full" for="star3" title="Jo cha me mache"></label>
+              <input type="radio" id="star2" name="rating" value="2" />
+              <label class="full" for="star2" title="Mal luege"></label>
+              <input type="radio" id="star1" name="rating" value="1" />
+              <label class="full"for="star1" title="Wenn nid hüt de morn"></label>
             </fieldset>
           </section>
-          <button class="button1" id="submitButton">Save</button>
+          <button class="submitForm button1" id="submitButton">Save</button>
         </div>
         <div class="right"></div>
         <div class="footer"></div>

@@ -63,6 +63,8 @@ export class ListController {
     this.doneOnlyCheckbox.addEventListener("click", event => {
       this.renderThings();
     });
+    
+    feather.replace();
   }
 
   async renderThings() {

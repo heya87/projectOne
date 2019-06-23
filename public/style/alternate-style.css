@@ -71,3 +71,56 @@ body {
 .subtitle {
   display: inline;
 }
+
+.submitForm {
+  float: right;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+input[type="date"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+}
+
+table {
+  width: 100%;
+  margin-top: 30px;
+  border: solid 1px #ddeeee;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: "Courier New", Courier, monospace;
+}
+table thead th {
+  background-color: #ddefef;
+  border: solid 1px #ddeeee;
+  color: #336b6b;
+  padding: 10px;
+  text-align: left;
+  text-shadow: 1px 1px 1px #fff;
+}
+table tbody td {
+  border: solid 1px #ddeeee;
+  color: #333;
+  padding: 10px;
+  text-shadow: 1px 1px 1px #fff;
+}
+.colDesc {
+  width: 100%
+}
+
+.button1 {
+  width: 150px;
+  height: 30px;
+  margin: 5px;
+  font-family: "Courier New", Courier, monospace;
+}
