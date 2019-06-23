@@ -7,29 +7,33 @@
   <body>
     <main>
       <div class="container">
-        <div class="header"></div>
+        <div class="header">
+          <h1>Bucket List</h1>
+        </div>
         <div class="nav">
-          <input id="styleSwitcher" type="checkbox">
+          <input id="styleSwitcher" type="checkbox" />
         </div>
         <div class="left"></div>
         <div class="content">
-
-        <div class="flex">
-          <h2 class="subtitle">Things to do</h2>
-          <span class="spacer"></span>
-          <button class="button1" id="navigateToListButton">Changed my mind</button>
-        </div>
+          <div class="flex">
+            <h2 class="subtitle">Things to do</h2>
+            <span class="spacer"></span>
+            <button class="button1" id="navigateToListButton">
+              Changed my mind
+            </button>
+          </div>
           <form id="thingForm">
-            A thing for my bucket list: <input type="text" id="description" />
+            A thing for my bucket list:
+            <input type="text" id="description" required />
             <br />
             Want to do this until:
-            <input type="date" id="endDate" /> <br />
+            <input type="date" id="endDate" required /> <br />
           </form>
           <section id="relevance">
             <fieldset class="relevanceSet">
               <legend>Rate It</legend>
               <form id="relevanceForm">
-                <input id="rel1" class="rel" name="rel" type="radio" />
+                <input id="rel1" class="rel" name="rel" type="radio" required />
                 <label forreleva="rel1" class="star fa fa-star-o fa-lg"></label>
                 <input id="rel2" class="rel" name="rel" type="radio" />
                 <label for="rel2" class="star fa fa-star-o fa-lg"></label>

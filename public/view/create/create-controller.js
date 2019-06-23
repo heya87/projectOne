@@ -74,19 +74,35 @@ export class CreateController {
     let description = this.textFieldDescription.value;
     let endDate = this.dateFieldEndDate.value;
     let relevance = this.getRelevance();
-    let id = this.getIdFromURL();
-    if (this.getIdFromURL()) {
-      this.thingService.updateThing(id, description, endDate, relevance);
-    } else {
-      this.thingService.createThing(description, endDate, relevance);
+
+    if (this.validate(description, endDate, relevance)) {
+      let id = this.getIdFromURL();
+      if (this.getIdFromURL()) {
+        this.thingService.updateThing(id, description, endDate, relevance);
+      } else {
+        this.thingService.createThing(description, endDate, relevance);
+      }
+      this.router.navigateToListView();
     }
-    this.router.navigateToListView();
+  }
+
+  validate(description, endDate, relevance) {
+    let result = true;
+    if (description == null || description == "" || description == undefined) {
+      result = false;
+    }
+    if (endDate == null || endDate == "" || endDate == undefined) {
+      result = false;
+    }
+    if (relevance == null || relevance == "" || relevance == undefined) {
+      result = false;
+    }
+    return result;
   }
 
   initEventHandler() {
     this.submitButton.addEventListener("click", event => this.submitThing());
-    this.relevanceForm.addEventListener("click", event => {
-    });
+    this.relevanceForm.addEventListener("click", event => {});
     this.navigateToListButton.addEventListener("click", event =>
       this.router.navigateToListView()
     );
