@@ -14,7 +14,11 @@
         <h1>Bucket List</h1>
       </div>
       <div class="nav">
-        <input id="styleSwitcher" type="checkbox" />
+        <label class="control control-checkbox">
+          Ugly
+          <input id="styleSwitcher" type="checkbox" />
+          <div class="control_indicator"></div>
+        </label>
       </div>
       <div class="left"></div>
       <div class="content">
@@ -42,9 +46,11 @@
               Relevance
             </label>
             <span class="spacer"></span>
-            <label class="alignrigth">
-              <input id="showDone" type="checkbox" />
+
+            <label class="control control-checkbox">
               Done
+              <input id="showDone" type="checkbox" />
+              <div class="control_indicator"></div>
             </label>
           </form>
         </fieldset>

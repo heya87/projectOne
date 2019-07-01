@@ -16,7 +16,11 @@
           <h1>Bucket List</h1>
         </div>
         <div class="nav">
-          <input id="styleSwitcher" type="checkbox" />
+          <label class="control control-checkbox">
+           Ugly 
+            <input id="styleSwitcher" type="checkbox" />
+            <div class="control_indicator"></div>
+          </label>
         </div>
         <div class="left"></div>
         <div class="content">
@@ -30,11 +34,8 @@
           <form id="thingForm">
             A thing for my bucket list:
             <input type="text" id="description" required />
-            <br />
             Want to do this until:
-            <input type="date" id="endDate" required /> <br />
-          </form>
-          <section class="relevanceSection" id="relevance">
+            <input type="date" id="endDate" required />
             <fieldset id="relevanceSet" class="rating relevanceSet">
               <legend>Relevance</legend>
               <input type="radio" id="star5" name="rating" value="5" />
@@ -46,10 +47,14 @@
               <input type="radio" id="star2" name="rating" value="2" />
               <label class="full" for="star2" title="Mal luege"></label>
               <input type="radio" id="star1" name="rating" value="1" />
-              <label class="full"for="star1" title="Wenn nid hüt de morn"></label>
+              <label
+                class="full"
+                for="star1"
+                title="Wenn nid hüt de morn"
+              ></label>
             </fieldset>
-          </section>
-          <button class="submitForm button1" id="submitButton">Save</button>
+            <button class="submitForm button1" id="submitButton">Save</button>
+          </form>
         </div>
         <div class="right"></div>
         <div class="footer"></div>

@@ -5,7 +5,7 @@ const PAHT_ALTERNATE_CSS = "../../style/alternate-style.css";
 export class StyleService {
   constructor() {
     if (this.isDefault() === undefined) {
-      this.setDefaultStyle(true);
+      this.setDefaultStyle(false);
     }
     this.updateStyleSheet();
   }
@@ -29,19 +29,19 @@ export class StyleService {
 
   setDefaultTheme() {
     var theme = document.getElementById("theme");
-    theme.href = PAHT_DEFAULT_CSS; 
+    theme.href = PAHT_DEFAULT_CSS;
   }
 
   setAlternateTheme() {
     var theme = document.getElementById("theme");
-    theme.href = PAHT_ALTERNATE_CSS; 
+    theme.href = PAHT_ALTERNATE_CSS;
   }
 
   updateStyleSheet() {
-    if(this.isDefault()) {
-      this.setDefaultTheme();
-    } else {
+    if (this.isDefault()) {
       this.setAlternateTheme();
+    } else {
+      this.setDefaultTheme();
     }
   }
 }
