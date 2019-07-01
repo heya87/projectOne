@@ -97,12 +97,14 @@ export class CreateController {
   validate(description, endDate, relevance) {
     let result = true;
     if (description == null || description == "" || description == undefined) {
+      this.textFieldDescription.a
       result = false;
     }
     if (endDate == null || endDate == "" || endDate == undefined) {
       result = false;
     }
-    if (relevance == null || relevance == "" || relevance == undefined) {
+    if (Number.isNaN(relevance) || relevance == null || relevance == "" || relevance == undefined) {
+      window.alert("Please fill out field: Relevance");
       result = false;
     }
     return result;
