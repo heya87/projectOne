@@ -28,14 +28,4 @@ export class ThingService {
       state: stateValue
     });
   }
-
-  //works as long as we cant delete things, is going to be refactored when backend is there anyways
-  generateUId() {
-    let things = this.loadThings();
-    if (things) {
-      return things.length + 1;
-    } else {
-      return 1;
-    }
-  }
 }

@@ -68,10 +68,10 @@ export class CreateController {
         relevance = i + 1;
       }
     }
-    return 6- relevance;
+    return 6 - relevance;
   }
 
-  submitThing(event) {
+  async submitThing(event) {
     let description = this.textFieldDescription.value;
     let endDate = this.dateFieldEndDate.value;
     let relevance = this.getRelevance();
@@ -79,11 +79,18 @@ export class CreateController {
     if (this.validate(description, endDate, relevance)) {
       let id = this.getIdFromURL();
       if (id) {
-        this.thingService.updateThing(id, description, endDate, relevance, THING_STATE_NEW);
+        await this.thingService.updateThing(
+          id,
+          description,
+          endDate,
+          relevance,
+          THING_STATE_NEW
+        );
+        await this.router.navigateToListView();
       } else {
-        this.thingService.createThing(description, endDate, relevance);
+        await this.thingService.createThing(description, endDate, relevance);
+        await this.router.navigateToListView();
       }
-      //this.router.navigateToListView();
     }
   }
 

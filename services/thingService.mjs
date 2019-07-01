@@ -14,24 +14,27 @@ export class ThingService {
     res.json((await this.thingStore.get(req.params.id)) || []);
   }
 
-  createThing(req, res) {
-    let id = 1;
+  async createThing(req, res) {
     let createDate = this.dateUtil.now();
-    this.thingStore.add(
-      req.body.description,
-      req.body.endDate,
-      req.body.relevance,
-      createDate
+    res.json(
+      (await this.thingStore.add(
+        req.body.description,
+        req.body.endDate,
+        req.body.relevance,
+        createDate
+      )) || []
     );
   }
 
-  updateThing(req, resp) {
-    this.thingStore.update(
-      req.params.id,
-      req.body.description,
-      req.body.endDate,
-      req.body.relevance,
-      req.body.state
+  async updateThing(req, res) {
+    res.json(
+      (await this.thingStore.update(
+        req.params.id,
+        req.body.description,
+        req.body.endDate,
+        req.body.relevance,
+        req.body.state
+      )) || []
     );
   }
 

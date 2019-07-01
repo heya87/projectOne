@@ -6,18 +6,22 @@ export class Router {
   constructor() {}
 
   navigateToCreateView() {
+    console.log(`navigationg to: ${BASE_URL}${CREATE_URL}`);
     window.location.replace(`${BASE_URL}${CREATE_URL}`);
   }
 
   navigateToCreateView(id) {
     if (id) {
+      console.log(`navigating to: ${BASE_URL}${CREATE_URL}?id=${id}`);
       window.location.replace(`${BASE_URL}${CREATE_URL}?id=${id}`);
     } else {
+      console.log(`navigating to: ${BASE_URL}${CREATE_URL}`);
       window.location.replace(`${BASE_URL}${CREATE_URL}`);
     }
   }
 
   navigateToListView() {
+    console.log(`navigating to: ${BASE_URL}${LIST_URL}`)
     window.location.replace(`${BASE_URL}${LIST_URL}`);
   }
 }
