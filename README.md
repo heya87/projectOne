@@ -1,10 +1,10 @@
 # projectOne
 First of two exercise projects for the CAS Frontend Engineering course.
 
-# Goal
+## Goal
 Task list using Javascript, HTML (Handlebars) / Node / nedb
 
-# Installation
+## Installation
 
 git clone https://github.com/heya87/projectOne.git
 cd projectOne/
