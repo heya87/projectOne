@@ -6,10 +6,14 @@ Task list using Javascript, HTML (Handlebars) / Node / nedb
 
 ## Installation
 
-git clone https://github.com/heya87/projectOne.git
-cd projectOne/
-git checkout develop
-npm install
-nodemon --experimental-modules app.mjs
 
-Open here: http://127.0.0.1:3001/
+```
+git clone https://github.com/heya87/projectOne.git  
+cd projectOne/  
+git checkout develop  
+npm install  
+nodemon --experimental-modules app.mjs      
+```
+
+Open here:  
+http://127.0.0.1:3001/
