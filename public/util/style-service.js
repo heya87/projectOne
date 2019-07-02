@@ -12,7 +12,11 @@ export class StyleService {
 
   isDefault() {
     let currentStyle = JSON.parse(localStorage.getItem(STYLE_KEY));
-    return currentStyle.default;
+    if (currentStyle) {
+      return currentStyle.default;
+    } else {
+      return undefined;
+    }
   }
 
   switch() {
