@@ -12,4 +12,4 @@ git checkout develop
 npm install
 nodemon --experimental-modules app.mjs
 
-Open app at: http://127.0.0.1:3001/
+Open here: http://127.0.0.1:3001/
